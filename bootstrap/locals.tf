@@ -1,12 +1,14 @@
 # Calculate resource names
 locals {
   name_replacements = {
-    workload       = var.resource_name_workload
-    environment    = var.resource_name_environment
-    location       = var.location
-    location_short = var.resource_name_location_short == "" ? module.regions.regions_by_name[var.location].geo_code : var.resource_name_location_short
-    uniqueness     = random_string.unique_name.id
-    sequence       = format("%03d", var.resource_name_sequence_start)
+    workload                     = var.resource_name_workload
+    environment                  = var.resource_name_environment
+    location                     = var.location
+    location_short               = var.resource_name_location_short == "" ? module.regions.regions_by_name[var.location].geo_code : var.resource_name_location_short
+    uniqueness                   = random_string.unique_name.id
+    sequence                     = format("%03d", var.resource_name_sequence_start)
+    resource_name_location_short = var.resource_name_location_short
+    resource_name_workload       = var.resource_name_workload
   }
 
   resource_names = { for key, value in var.resource_name_templates : key => templatestring(value, local.name_replacements) }
@@ -25,10 +27,11 @@ locals {
     dependent_environment = value.dependent_environment
     resource_group_create = value.resource_group_create
     resource_group_name = templatestring(value.resource_group_name_template, {
-      workload    = local.name_replacements.workload
-      environment = key
-      location    = local.name_replacements.location
-      sequence    = local.name_replacements.sequence
+      workload                     = local.name_replacements.workload
+      environment                  = key
+      location                     = local.name_replacements.location
+      sequence                     = local.name_replacements.sequence
+      resource_name_location_short = local.name_replacements.resource_name_location_short
     })
     user_assigned_managed_identity_name_template = value.user_assigned_managed_identity_name_template
   } }

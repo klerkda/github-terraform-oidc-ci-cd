@@ -76,7 +76,7 @@ variable "resource_name_templates" {
     nat_gateway_public_ip_name            = "pip-nat-$${workload}-$${environment}-$${location}-$${sequence}"
     storage_account_name                  = "sto$${workload}$${environment}$${location_short}$${sequence}$${uniqueness}"
     storage_account_private_endpoint_name = "pe-sto-$${workload}-$${environment}-$${location}-$${sequence}"
-    agent_compute_postfix_name            = "$${workload}-$${environment}-$${location}-$${sequence}"
+    agent_compute_postfix_name            = "$${workload}-$${environment}-$${resource_name_location_short}-$${sequence}"
     container_instance_prefix_name        = "aci-$${workload}-$${environment}-$${location}"
     container_registry_name               = "acr$${workload}$${environment}$${location}$${sequence}$${uniqueness}"
     repository_main_name                  = "$${workload}-$${environment}-main"
