@@ -1,4 +1,4 @@
-location                      = "uksouth"
+location                      = "westeurope"
 resource_name_workload        = "demo"
 resource_name_environment     = "dev"
 virtual_network_address_space = ["10.0.0.0/16"]

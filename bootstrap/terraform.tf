@@ -12,8 +12,9 @@ terraform {
 }
 
 provider "github" {
-  token = var.personal_access_token
-  owner = var.organization_name
+  token    = var.personal_access_token
+  owner    = var.organization_name
+  base_url = "https://prorail.ghe.com/"
 }
 
 provider "azurerm" {

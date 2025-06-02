@@ -131,7 +131,7 @@ variable "use_self_hosted_agents" {
 
 variable "use_runner_group" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "self_hosted_agent_type" {

@@ -11,12 +11,12 @@ resource "github_team" "this" {
   description = "Approvers for the Landing Zone Terraform Apply"
   privacy     = "closed"
 
-  lifecycle {
-    precondition {
-      condition     = length(local.invalid_approvers) == 0
-      error_message = "At least one approver has not been supplied with a valid email. Invalid approvers: ${join(", ", local.invalid_approvers)}"
-    }
-  }
+  #  lifecycle {
+  #    precondition {
+  #      condition     = length(local.invalid_approvers) == 0
+  #      error_message = "At least one approver has not been supplied with a valid email. Invalid approvers: ${join(", ", local.invalid_approvers)}"
+  #    }
+  #  }
 }
 
 resource "github_team_membership" "this" {

@@ -9,6 +9,7 @@ locals {
     sequence                     = format("%03d", var.resource_name_sequence_start)
     resource_name_location_short = var.resource_name_location_short
     resource_name_workload       = var.resource_name_workload
+    use_runner_group             = var.use_runner_group
   }
 
   resource_names = { for key, value in var.resource_name_templates : key => templatestring(value, local.name_replacements) }
