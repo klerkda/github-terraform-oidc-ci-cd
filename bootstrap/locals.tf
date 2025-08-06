@@ -17,7 +17,7 @@ locals {
 
 locals {
   default_audience_name = "api://AzureADTokenExchange"
-  github_issuer_url     = "https://token.actions.githubusercontent.com"
+  github_issuer_url     = "https://token.actions.prorail.ghe.com"
 }
 
 locals {

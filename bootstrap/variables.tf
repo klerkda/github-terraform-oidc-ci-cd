@@ -81,7 +81,7 @@ variable "resource_name_templates" {
     container_registry_name               = "acr$${workload}$${environment}$${location}$${sequence}$${uniqueness}"
     repository_main_name                  = "$${workload}-$${environment}-main"
     repository_template_name              = "$${workload}-$${environment}-template"
-    runner_group_name                     = "runner-group-$${workload}-$${environment}"
+    runner_group_name                     = "runner-group-$${workload}-$${environment}-ci"
     team_name                             = "team-$${workload}-$${environment}-approvers"
   }
 }
